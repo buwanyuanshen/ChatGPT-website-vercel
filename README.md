@@ -1,4 +1,4 @@
-## 一键部署chatgpt-website-plus项目！十秒极速部署一个基本支持所有OpenAI模型的对话式网页！
+## 一键部署ChatGPT-website-plus项目！十秒极速部署一个基本支持所有OpenAI模型的对话式网页！
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/buwanyuanshen/chatgpt-website-vercel)
 
 
