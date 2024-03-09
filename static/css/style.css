@@ -1,0 +1,697 @@
+:root[bg-theme='light'] {
+  --bg-color: white;
+}
+
+:root[bg-theme='dark'] {
+  --bg-color: rgb(0, 0, 0);
+}
+
+:root[bg-theme='dark'] .message-text.request,
+:root[bg-theme='dark'] .message-text.response {
+  color: white;
+} 
+
+:root[bg-theme='gray'] {
+  --bg-color: #42424670;
+}
+
+:root[bg-theme='blue'] {
+  --bg-color: #55609a;
+}
+
+:root[bg-theme='purple'] {
+  --bg-color: #c09ff9;
+}
+
+:root[bg-theme='green'] {
+  --bg-color: #91ecd1;
+}
+
+:root[bg-theme='yellow'] {
+  --bg-color: #e9e097;
+}
+
+:root[bg-theme='orange'] {
+  --bg-color: #ffa500;
+}
+
+:root[bg-theme='cyan'] {
+  --bg-color: #00ffff;
+}
+
+:root[bg-theme='pink'] {
+  --bg-color: #f8a7b8;
+}
+
+:root[bg-theme='teal'] {
+  --bg-color: #008080;
+}
+
+:root[bg-theme='silver'] {
+  --bg-color: #c0c0c0;
+}
+
+:root[bg-theme='light-pink'] {
+  --bg-color: #ffc0cb;
+}
+
+:root[bg-theme='light-blue'] {
+  --bg-color: #add8e6;
+}
+
+:root[bg-theme='light-green'] {
+  --bg-color: #90ee90;
+}
+
+:root[bg-theme='light-yellow'] {
+  --bg-color: #ffffe0;
+}
+
+:root[bg-theme='light-orange'] {
+  --bg-color: #ffdab9;
+}
+
+.foot {
+    color: green;
+}
+
+:root[bg-theme='dark'] .copy-button i,
+:root[bg-theme='dark'] .view-button i,
+:root[bg-theme='dark'] .send-button i,
+:root[bg-theme='dark'] .edit-button i,
+:root[bg-theme='dark'] .delete-message-btn i {
+  color: white; /* 将按钮图标颜色设置为白色 */
+}
+
+:root[bg-theme='dark'] .copy-button:hover i,
+:root[bg-theme='dark'] .view-button:hover i,
+:root[bg-theme='dark'] .send-button:hover i,
+:root[bg-theme='dark'] .edit-button:hover i {
+  color: #90ee90; /* 悬停时将按钮图标颜色设置为绿色 */
+}
+
+:root[bg-theme='dark'] .delete-message-btn:hover i {
+  color: red; /* 悬停时将按钮图标颜色设置为红色 */
+}
+
+:root[bg-theme='gray'] .copy-button i,
+:root[bg-theme='gray'] .view-button i,
+:root[bg-theme='gray'] .send-button i,
+:root[bg-theme='gray'] .edit-button i,
+:root[bg-theme='gray'] .delete-message-btn i {
+  color: black; /* 将按钮图标颜色设置为黑色 */
+}
+
+:root[bg-theme='gray'] .copy-button:hover i,
+:root[bg-theme='gray'] .view-button:hover i,
+:root[bg-theme='gray'] .send-button:hover i,
+:root[bg-theme='gray'] .edit-button:hover i {
+  color: blue; /* 悬停时将按钮图标颜色设置为蓝色 */
+}
+
+:root[bg-theme='gray'] .delete-message-btn:hover i {
+  color: red; /* 悬停时将按钮图标颜色设置为红色 */
+}
+
+/* 与主题颜色为 silver 时应用相同的设置 */
+:root[bg-theme='silver'] .copy-button i,
+:root[bg-theme='silver'] .view-button i,
+:root[bg-theme='silver'] .send-button i,
+:root[bg-theme='silver'] .edit-button i,
+:root[bg-theme='silver'] .delete-message-btn i {
+  color: black;
+}
+
+:root[bg-theme='silver'] .copy-button:hover i,
+:root[bg-theme='silver'] .view-button:hover i,
+:root[bg-theme='silver'] .send-button:hover i,
+:root[bg-theme='silver'] .edit-button:hover i {
+  color: blue;
+}
+
+:root[bg-theme='silver'] .delete-message-btn:hover i {
+  color: red;
+}
+
+/* CSS 样式中为复制按钮设置图标 */
+.copy-button {
+  display: none; /* 默认隐藏复制按钮 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 4px; /* 设置左侧间距为 4px */
+  margin-right: 5.5px; /* 设置右侧间距为 5.5px */
+}
+
+.copy-button i {
+  color: #808080; /* 默认图标颜色为灰色 */
+  font-size: 14px; /* 图标大小 */
+}
+
+.message-text.request:hover .copy-button,
+.message-text.response:hover .copy-button {
+  display: inline-block; /* 鼠标悬停时显示复制按钮 */
+}
+
+/* 悬停时变色 */
+.copy-button:hover i {
+  color: #000000; /* 悬停时图标颜色变为黑色 */
+}
+
+/* CSS 样式中为查看按钮设置图标 */
+.view-button {
+  display: none; /* 默认隐藏查看按钮 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 4px; /* 设置左侧间距为 4px */
+  margin-right: 5.5px; /* 设置右侧间距为 5.5px */
+}
+
+.view-button i {
+  color: #808080; /* 默认图标颜色为灰色 */
+  font-size: 14px; /* 图标大小 */
+}
+
+.message-text.request:hover .view-button,
+.message-text.response:hover .view-button {
+  display: inline-block; /* 鼠标悬停时显示查看按钮 */
+}
+
+/* 悬停时变色 */
+.view-button:hover i {
+  color: #000000; /* 悬停时图标颜色变为黑色 */
+}
+
+/* CSS 样式中为发送按钮设置图标 */
+.send-button {
+  display: none; /* 默认隐藏发送按钮 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5.5px; /* 设置左侧间距为 5.5px */
+  margin-right: 5.5px; /* 设置右侧间距为 5.5px */
+}
+
+.send-button i {
+  color: #808080; /* 默认图标颜色为灰色 */
+  font-size: 14px; /* 图标大小 */
+}
+
+.message-text.request:hover .send-button,
+.message-text.response:hover .send-button {
+  display: inline-block; /* 鼠标悬停时显示发送按钮 */
+}
+
+/* 悬停时变色 */
+.send-button:hover i {
+  color: #000000; /* 悬停时图标颜色变为黑色 */
+}
+
+/* CSS 样式中为编辑按钮设置图标 */
+.edit-button {
+  display: none; /* 默认隐藏编辑按钮 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5.5px; /* 设置左侧间距为 5.5px */
+  margin-right: 5.5px; /* 设置右侧间距为 5.5px */
+}
+
+.edit-button i {
+  color: #808080; /* 默认图标颜色为灰色 */
+  font-size: 14px; /* 图标大小 */
+}
+
+.message-text.request:hover .edit-button,
+.message-text.response:hover .edit-button {
+  display: inline-block; /* 鼠标悬停时显示编辑按钮 */
+}
+
+/* 悬停时变色 */
+.edit-button:hover i {
+  color: #000000; /* 悬停时图标颜色变为黑色 */
+}
+
+.delete-message-btn {
+  display: none; /* 默认隐藏删除按钮 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5.5px; /* 设置左侧间距为 5.5px */
+}
+
+.delete-message-btn i {
+  color: #808080; /* 默认图标颜色为灰色 */
+  font-size: 14px; /* 图标大小 */
+}
+
+.message-text.request:hover .delete-message-btn,
+.message-text.response:hover .delete-message-btn {
+  display: inline-block; /* 鼠标悬停时显示删除按钮 */
+}
+
+/* 悬停时变色 */
+.delete-message-btn:hover i {
+  color: red; /* 悬停时图标颜色变为红色 */
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+@media screen and (max-width: 768px){
+  .container {
+    width: 100% !important;
+  }
+  .answer{
+    height: calc(100vh - 145px) !important;
+  }
+  .answer .others .common .settings-common span{
+    font-size: 85%;
+  }
+  .foot p:first-child{
+    font-size: 14px !important;
+  }
+  .foot p a{
+    font-size: 13px !important;
+  }
+  .settings-common {
+        width: 120%;
+  }
+  .dropdown-menu {
+        width: 120%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+      width: 970px !important;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  #chatWindow::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  #chatWindow::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  #chatWindow::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+}
+
+.form-control{
+  border-color: #1ab394 !important;
+  padding: 6px 6px !important;
+}
+
+pre{
+  position: relative;
+  color: #adbac7;
+  background: #2b2a2a;
+}
+
+.copy-btn{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #686666;
+  color: #e2dfea;
+  cursor: pointer;
+}
+
+.title{
+  width: 100%;
+}
+
+.title h2{
+  margin-bottom: 20px;
+  color: #4aa593;
+}
+
+.answer{
+  width: 100%;
+  position: relative;
+  height: calc(100vh - 165px);
+}
+
+.answer .tips{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer .tips h4{
+  color:red;
+}
+
+.answer .tips img{
+  margin-top: 30px;
+  border:1px solid #7eecd6;
+  box-shadow: 0px 1px 10px 0px #7defd8;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.answer .function{
+  padding: 0 15px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.answer .others{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 15px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.answer .others .left,.right{
+  display: flex;
+}
+
+.answer .others .center{
+  display: none;
+}
+
+.answer .others .common{
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+
+.answer .others .common .settings-common{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.answer .others .common .settings-common:hover{
+  background-color: rgba(148,163,184,.2);
+}
+
+.answer .others .common .settings-common:last-child{
+  border-bottom: 0;
+}
+
+.answer .others .common .settings-common .ipt-common{
+  width: 60%;
+  opacity: .8;
+}
+
+.answer .others .common .settings-common span{
+  color: #1ab394;
+  cursor: default;
+}
+.answer .others .common .settings-common a{
+  font-size: 14px;
+  color: #1ab394;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* 按钮样式 */
+.chck-btn{
+  display: flex;
+  justify-content: center;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide the input */
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.check-trail {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(148,163,184,.4);
+  border-radius: 15px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.check-handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  background: rgb(148 163 184 / 85%);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.check-handler:before {
+  content: "×";
+  color: white;
+  font-weight: bold;
+}
+
+input[type="checkbox"]:checked + .check-trail {
+  background: #1ab394a3;
+}
+input[type="checkbox"]:checked + .check-trail .check-handler {
+  margin-left: 26px;
+  background: #1ab394;
+}
+input[type="checkbox"]:checked + .check-trail .check-handler::before {
+  content: "✔";
+}
+
+.answer .others .center .stop{
+  border: 1px solid rgba(241, 41, 11, 0.8);
+  border-radius: 5px;
+  opacity: .8;
+  width: 60px;
+  background-color: rgba(179, 46, 26, 0.1);
+  overflow: hidden;
+}
+
+.answer .others .center .stop .stop-icon{
+  width: 100%;
+  color: red;
+  opacity: .8;
+}
+
+.answer .others .center .stop .stop-icon:hover{
+  background-color: rgb(214, 168, 168,.2);
+}
+
+.answer .others .right .screenshot{
+  margin-right: 10px;
+}
+
+.answer .others .icon-style{
+  width:30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #1ab394;
+  cursor: pointer;
+}
+
+.answer .others .icon-style:hover{
+  background-color: rgba(26, 179, 148,.1);
+}
+
+.answer .ipt{
+  display:flex;
+  align-items: center;
+  padding-right: 15px;
+  border-radius: 10px;
+  height: 50px;
+  border: 1px solid rgba(26, 179, 148, 0.8);
+  box-shadow: 0px 0px 10px 0px rgba(26, 179, 148, 0.2);
+}
+.answer .ipt textarea {
+  resize: none;
+  overflow-y: auto;
+  border: none;
+  box-shadow:none;
+}
+.answer .ipt textarea:focus{
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.answer #chatWindow {
+  width: 100%;
+  max-height: calc(100% - 100px);
+  height:auto;
+  overflow-y: auto;
+}
+
+.message-bubble {
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px dashed #e7eaec;
+}
+
+.message-bubble .message-text.response{
+  width: auto;
+  max-width: calc(100% - 45px);
+  font-size: 17px;
+  margin-left:10px;
+  word-break: break-all;
+}
+
+.message-bubble .message-text.request{
+  width: auto;
+  max-width: calc(100% - 45px);
+  font-size: 17px;
+  margin-left:10px;
+  word-break: break-all;
+}
+
+.message-bubble .message-text p{
+  white-space: pre-wrap;
+}
+
+.message-bubble .response ol,ul{
+  padding-left: 2em;
+}
+
+/* 错误信息样式 */
+.message-bubble .message-text p.error{
+  color:red;
+  height:auto;
+  display: block;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.message-bubble .chat-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.message-bubble .request-icon{
+  background-image: url(../images/avatar.png);
+}
+
+.message-bubble .response-icon{
+ background-image: url(../images/chatgpt.png);
+}
+
+.message-bubble .response .loading-icon{
+  color: #1ab394;
+}
+
+.answer #chatBtn{
+  background-color: #1ab394;
+  border-color: #1ab394;
+}
+
+.answer #chatBtn:focus{
+  outline:5px auto #1ab394 !important;
+}
+
+.foot p:first-child{
+  margin-bottom: 10px;
+  opacity: .9;
+}
+
+.foot p:nth-child(2){
+  margin-bottom: 0;
+}
+
+.foot p a{
+  margin-right: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  color:#1ab394;
+  text-decoration:none;
+}
+/* 移动设置按钮到输入框左侧 */
+.answer .ipt {
+    position: relative;
+}
+
+.answer .others .common.settings {
+    position: absolute;
+    top: 85%;
+    transform: translateY(-50%);
+    left: -15px; /* 调整左侧距离 */
+    z-index: 1; /* 将设置按钮置于输入框上层 */
+}
+
+
+.answer .others .common.settings .dropup {
+    left: auto;
+    right: ;
+}
+
+    .settings-common {
+        display: flex;
+        align-items: center;
+     
+    }
+
+    .temperature, .max-tokens {
+        flex: 1.5;
+        margin-left: 10px; /* 间隙大小 */
+        margin-right: 5px; /* 间隙大小 */
+    }
+
+    .temperature-input, .max-tokens-input {
+        flex: 1;
+    }
+
+    .temperature-display {
+        margin-left: 10px; /* 输入框和显示数字之间的间隙 */
+    }
+    .max-tokens-display {
+        margin-left: 5px; /* 输入框和显示数字之间的间隙 */
+    }
+    .lead.text-center {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .lead.text-center a {
+        margin: 5.5px;
+    }
+    .settings-common {
+        height: 35px; 
+        max-height: none; 
+    }
