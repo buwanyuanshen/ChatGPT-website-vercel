@@ -10,7 +10,7 @@ import re
 app = Flask(__name__)
 
 # 从配置文件中settings加载配置
-app.config.from_pyfile('settings.py')
+app.config.from_pyfile('vercel.json')
 
 
 @app.route("/", methods=["GET"])
