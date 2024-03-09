@@ -1,4 +1,4 @@
-tin# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, render_template, Response
 import requests
 import json
