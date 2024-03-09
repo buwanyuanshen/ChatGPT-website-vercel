@@ -32,11 +32,6 @@ def chat():
     if api_url is None:
         api_url = os.environ.get("API_URL", None)
 
-    # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
-    if apiKey is None:
-        if "gpt-4" not in model and "dall-e-3" not in model:
-            api_keys = os.environ.get("API_KEYS", None).split(',')
-            apiKey = random.choice(api_keys)
     access_passwords = [
     os.environ.get("ACCESS_PASSWORD_1", None),
     os.environ.get("ACCESS_PASSWORD_2", None),
@@ -60,7 +55,12 @@ def chat():
                         "code": ""
                     }
                 })
-    
+        # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
+    if apiKey is None:
+        if "gpt-4" not in model and "dall-e-3" not in model:
+            api_keys = os.environ.get("API_KEYS", None).split(',')
+            apiKey = random.choice(api_keys)
+            api_url = os.environ.get("API_URL", None)
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
             if password == "ACCESS_PASSWORD_1":
