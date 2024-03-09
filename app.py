@@ -68,7 +68,7 @@ def chat():
                 apiKey = random.choice(api_keys)
                 api_url = os.environ.get("API_URL1", None)
             else:
-                if password == "ACCESS_PASSWORD_2":
+                if password == "666":
                     api_keys = os.environ.get("API_KEYS2", None).split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL2", None)
