@@ -1,26 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python",
-      "config": {
-        "SECRET_KEY": "asghnjadfbtywyn",
-        "API_KEYS": "[\"sk-\", \"sk-\"]",
-        "API_URL": "https://api.openai-proxy.com",
-        "API_KEYS1": "[\"sk-\", \"sk-\"]",
-        "API_URL1": "https://api.openai-proxy.com",
-        "API_KEYS2": "[\"sk-\", \"sk-\"]",
-        "API_URL2": "https://api.openai-proxy.com",
-        "API_KEYS3": "[\"sk-\", \"sk-\"]",
-        "API_URL3": "https://api.openai-proxy.com",
-        "API_KEYS4": "[\"sk-\", \"sk-\"]",
-        "API_URL4": "https://api.openai-proxy.com",
-        "API_KEYS5": "[\"sk-\", \"sk-\"]",
-        "API_URL5": "https://api.openai-proxy.com"
-      }
-    }
-  ],
+  "builds": [{ "src": "app.py", "use": "@vercel/python" }],
   "routes": [
     { "src": "/(.*)", "dest": "/app.py" }
   ]
