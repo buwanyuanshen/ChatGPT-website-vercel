@@ -11,6 +11,7 @@
 本项目是阿牛[ChatGPT-website项目](https://github.com/Aniuyyds/ChatGPT-website)的改进版本。
 欢迎点 Star ! 
 ## 环境变量（需要则填）
+API_Keys支持多个填写，以英文逗号分隔即可！
 | 环境变量 | 说明 | 建议值（示例） |用处| vercel 部署|
 | --- | --- | --- | --- | --- |
 | API_KEYS | OpenAI API 密钥 |  sk-xxxxx | 用于gpt3.5等免费模型 |  ✅|
