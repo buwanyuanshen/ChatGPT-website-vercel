@@ -22,27 +22,27 @@ def index():
 def chat():
     global user_text
     messages = request.form.get("prompts", None)
-    apiKey = request.form.get("apiKey", "")
+    apiKey = request.form.get("apiKey", None)
     model = request.form.get("model", "gpt-3.5-turbo-0125")
     temperature = request.form.get("temperature", 0.5)
     max_tokens = request.form.get("max_tokens", 4000)
-    password = request.form.get("password", "")
+    password = request.form.get("password", None)
     api_url = request.form.get("api_url", None)
 
     if api_url is None:
-        api_url = os.environ.get("API_URL", "")
+        api_url = os.environ.get("API_URL", None)
 
     # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
     if apiKey is None:
         if "gpt-4" not in model and "dall-e-3" not in model:
-            api_keys = os.environ.get("API_KEYS", "").split(',')
+            api_keys = os.environ.get("API_KEYS", None).split(',')
             apiKey = random.choice(api_keys)
     access_passwords = [
-    os.environ.get("ACCESS_PASSWORD_1", ""),
-    os.environ.get("ACCESS_PASSWORD_2", ""),
-    os.environ.get("ACCESS_PASSWORD_3", ""),
-    os.environ.get("ACCESS_PASSWORD_4", ""),
-    os.environ.get("ACCESS_PASSWORD_5", ""),
+    os.environ.get("ACCESS_PASSWORD_1", None),
+    os.environ.get("ACCESS_PASSWORD_2", None),
+    os.environ.get("ACCESS_PASSWORD_3", None),
+    os.environ.get("ACCESS_PASSWORD_4", None),
+    os.environ.get("ACCESS_PASSWORD_5", None),
 ]
     # 如果模型包含"gpt-4"或者dall-e-3，密码错误则返回错误！
     if apiKey is None:
@@ -64,24 +64,24 @@ def chat():
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
             if password == "ACCESS_PASSWORD_1":
-                api_keys = os.environ.get("API_KEYS1","").split(',')
+                api_keys = os.environ.get("API_KEYS1",None).split(',')
                 apiKey = random.choice(api_keys)
                 api_url = os.environ.get("API_URL1", None)
             else:
                 if password == "ACCESS_PASSWORD_2":
-                    api_keys = os.environ.get("API_KEYS2", "").split(',')
+                    api_keys = os.environ.get("API_KEYS2", None).split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL2", None)
                 elif password == "ACCESS_PASSWORD_3":
-                    api_keys = os.environ.get("API_KEYS3", "").split(',')
+                    api_keys = os.environ.get("API_KEYS3", None).split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL3", None)
                 elif password == "ACCESS_PASSWORD_4":
-                    api_keys = os.environ.get("API_KEYS4", "").split(',')
+                    api_keys = os.environ.get("API_KEYS4", None).split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL4", None)
                 elif password == "ACCESS_PASSWORD_5":
-                    api_keys = os.environ.get("API_KEYS5", "").split(',')
+                    api_keys = os.environ.get("API_KEYS5", None).split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL5", None)
 
