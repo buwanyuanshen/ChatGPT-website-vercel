@@ -1,22 +1,13 @@
 {
   "version": 2,
-  "builds": [{ "src": "app.py", "use": "@vercel/python" }],
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": { "API_KEY": "your_api_key" }
+    }
+  ],
   "routes": [
     { "src": "/(.*)", "dest": "/app.py" }
-  ],
-  "env": {
-    "SECRET_KEY": "asghnjadfbtywyn",
-    "API_KEYS": "",
-    "API_URL": "https://api.openai-proxy.com",
-    "API_KEYS1": "",
-    "API_URL1": "https://api.openai-proxy.com",
-    "API_KEYS2": "",
-    "API_URL2": "https://api.openai-proxy.com",
-    "API_KEYS3": "",
-    "API_URL3": "https://api.openai-proxy.com",
-    "API_KEYS4": "",
-    "API_URL4": "https://api.openai-proxy.com",
-    "API_KEYS5": "",
-    "API_URL5": "https://api.openai-proxy.com"
-  }
+  ]
 }
