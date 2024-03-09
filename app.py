@@ -37,7 +37,13 @@ def chat():
         if "gpt-4" not in model and "dall-e-3" not in model:
             api_keys = os.environ.get("API_KEYS", "").split(',')
             apiKey = random.choice(api_keys)
-
+    access_passwords = [
+    os.environ.get("ACCESS_PASSWORD_1", ""),
+    os.environ.get("ACCESS_PASSWORD_2", ""),
+    os.environ.get("ACCESS_PASSWORD_3", ""),
+    os.environ.get("ACCESS_PASSWORD_4", ""),
+    os.environ.get("ACCESS_PASSWORD_5", ""),
+]
     # 如果模型包含"gpt-4"或者dall-e-3，密码错误则返回错误！
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
@@ -46,7 +52,7 @@ def chat():
                                           "type": "empty_password_error", "code": ""}})
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
-            if password not in ["授权码1", "授权码2", "授权码3", "授权码4", "授权码5"]:
+            if password not in access_passwords:
                 return jsonify({
                     "error": {
                         "message": "请检查并输入正确的授权码或者输入自己的apikey！！！",
@@ -54,7 +60,7 @@ def chat():
                         "code": ""
                     }
                 })
-
+    
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
             if password == "授权码1":
