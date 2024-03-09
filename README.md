@@ -16,14 +16,20 @@
 | API_URL | OpenAI API 接口地址 | https://api.openai.com | 用于gpt3.5等免费模型 |  ✅|
 | API_KEYS1 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码1 |  ✅|
 | API_URL1 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码1 |  ✅|
+| ACCESS_PASSWORD_1 | 访问密码1 | xxxxxxx | gpt4等付费模型的访问密码1 |  ✅|
 | API_KEYS2 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码2 |  ✅|
 | API_URL2 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码2 |  ✅|
+| ACCESS_PASSWORD_1 | 访问密码2 | xxxxxxx | gpt4等付费模型的访问密码2 |  ✅|
 | API_KEYS3 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码3 |  ✅|
 | API_URL3 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码3 |  ✅|
+| ACCESS_PASSWORD_3 | 访问密码3 | xxxxxxx | gpt4等付费模型的访问密码3 |  ✅|
 | API_KEYS4 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型 ，对应访问密码4|  ✅|
 | API_URL4 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码4 |  ✅|
+| ACCESS_PASSWORD_4 | 访问密码4 | xxxxxxx | gpt4等付费模型的访问密码4 |  ✅|
 | API_KEYS5 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码5|  ✅|
 | API_URL5 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码5 |  ✅|
+| ACCESS_PASSWORD_5| 访问密码5 | xxxxxxx | gpt4等付费模型的访问密码5 |  ✅|
+
 ## 项目效果
 
 ### PC端
