@@ -63,24 +63,24 @@ def chat():
     
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
-            if password == "授权码1":
+            if password == "ACCESS_PASSWORD_1":
                 api_keys = os.environ.get("API_KEYS1", "").split(',')
                 apiKey = random.choice(api_keys)
                 api_url = os.environ.get("API_URL1",None)
             else:
-                if password == "授权码2":
+                if password == "ACCESS_PASSWORD_2":
                     api_keys = os.environ.get("API_KEYS2", "").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL2",None)
-                elif password == "授权码3":
+                elif password == "ACCESS_PASSWORD_3":
                     api_keys = os.environ.get("API_KEYS3", "").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL3",None)
-                elif password == "授权码4":
+                elif password == "ACCESS_PASSWORD_4":
                     api_keys = os.environ.get("API_KEYS4", "").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL4",None)
-                elif password == "授权码5":
+                elif password == "ACCESS_PASSWORD_5":
                     api_keys = os.environ.get("API_KEYS5", "").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL5",None)
