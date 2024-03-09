@@ -6,7 +6,7 @@ import os
 import random
 import base64
 import re
-
+from werkzeug.serving import run_simple
 app = Flask(__name__)
 
 # 从配置文件中settings加载配置
@@ -440,4 +440,5 @@ def chat():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', 80)
+    run_simple('0.0.0.0', 5000, app)
+
