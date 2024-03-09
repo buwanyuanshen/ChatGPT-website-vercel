@@ -10,7 +10,7 @@ import re
 app = Flask(__name__)
 
 # 从配置文件中settings加载配置
-app.config.from_pyfile('settings.py')
+# app.config.from_pyfile('settings.py')
 
 
 @app.route("/", methods=["GET"])
@@ -30,12 +30,12 @@ def chat():
     api_url = request.form.get("api_url", None)
 
     if api_url is None:
-        api_url = app.config.get("API_URL", None)
+        api_url = os.environ.get("API_URL", None)
 
     # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
     if apiKey is None:
         if "gpt-4" not in model and "dall-e-3" not in model:
-            api_keys = app.config.get("API_KEYS", [])
+            api_keys = os.environ.get("API_KEYS", [])
             apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
 
     # 如果模型包含"gpt-4"或者dall-e-3，密码错误则返回错误！
@@ -58,26 +58,26 @@ def chat():
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
             if password == "授权码1":
-                api_keys = app.config.get("API_KEYS1", [])
+                api_keys = os.environ.get("API_KEYS1", [])
                 apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-                api_url = app.config.get("API_URL1", None)
+                api_url = os.environ.get("API_URL1", None)
             else:
                 if password == "授权码2":
-                    api_keys = app.config.get("API_KEYS2", [])
+                    api_keys = os.environ.get("API_KEYS2", [])
                     apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-                    api_url = app.config.get("API_URL2", None)
+                    api_url = os.environ.get("API_URL2", None)
                 elif password == "授权码3":
-                    api_keys = app.config.get("API_KEYS3", [])
+                    api_keys = os.environ.get("API_KEYS3", [])
                     apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-                    api_url = app.config.get("API_URL3", None)
+                    api_url = os.environ.get("API_URL3", None)
                 elif password == "授权码4":
-                    api_keys = app.config.get("API_KEYS4", [])
+                    api_keys = os.environ.get("API_KEYS4", [])
                     apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-                    api_url = app.config.get("API_URL4", None)
+                    api_url = os.environ.get("API_URL4", None)
                 elif password == "授权码5":
-                    api_keys = app.config.get("API_KEYS5", [])
+                    api_keys = os.environ.get("API_KEYS5", [])
                     apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-                    api_url = app.config.get("API_URL5", None)
+                    api_url = os.environ.get("API_URL5", None)
 
     # 如果模型包含 "xxx"，更换对应的api_url和data
     if model == "dall-e-2":
