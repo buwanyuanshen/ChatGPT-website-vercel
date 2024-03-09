@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+tin# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, render_template, Response
 import requests
 import json
@@ -10,7 +10,7 @@ import re
 app = Flask(__name__)
 
 # 从配置文件中settings加载配置
-app.config.from_pyfile('vercel.json')
+app.config.from_pyfile('settings.py')
 
 
 @app.route("/", methods=["GET"])
