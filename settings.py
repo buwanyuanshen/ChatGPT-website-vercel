@@ -3,10 +3,7 @@
 SECRET_KEY = "asghnjadfbtywyn"
 
 # openAi api key（用于免费gpt3.5模型）
-API_KEYS = [
-    "sk-",
-    "sk-",
-]
+API_KEYS =process.env.API_KEYS;
 # openAi 代理 api（用于免费gpt3.5模型）
 API_URL = "https://api.openai-proxy.com"
 
