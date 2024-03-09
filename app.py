@@ -22,12 +22,12 @@ def index():
 def chat():
     global user_text
     messages = request.form.get("prompts", None)
-    apiKey = request.form.get("apiKey", "")
+    apiKey = request.form.get("apiKey", None)
     model = request.form.get("model", "gpt-3.5-turbo-0125")
     temperature = request.form.get("temperature", 0.5)
     max_tokens = request.form.get("max_tokens", 4000)
     password = request.form.get("password", "")
-    api_url = request.form.get("api_url", "")
+    api_url = request.form.get("api_url", None)
 
     if api_url is None:
         api_url = os.environ.get("API_URL", "")
@@ -35,7 +35,7 @@ def chat():
     # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
     if apiKey is None:
         if "gpt-4" not in model and "dall-e-3" not in model:
-            api_keys = os.environ.get("API_KEYS", None).split(',')
+            api_keys = os.environ.get("API_KEYS", "").split(',')
             apiKey = random.choice(api_keys)
     access_passwords = [
     os.environ.get("ACCESS_PASSWORD_1", ""),
@@ -66,24 +66,24 @@ def chat():
             if password == "ACCESS_PASSWORD_1":
                 api_keys = os.environ.get("API_KEYS1","").split(',')
                 apiKey = random.choice(api_keys)
-                api_url = os.environ.get("API_URL1", "")
+                api_url = os.environ.get("API_URL1", None)
             else:
                 if password == "ACCESS_PASSWORD_2":
                     api_keys = os.environ.get("API_KEYS2", "").split(',')
                     apiKey = random.choice(api_keys)
-                    api_url = os.environ.get("API_URL2", "")
+                    api_url = os.environ.get("API_URL2", None)
                 elif password == "ACCESS_PASSWORD_3":
                     api_keys = os.environ.get("API_KEYS3", "").split(',')
                     apiKey = random.choice(api_keys)
-                    api_url = os.environ.get("API_URL3", "")
+                    api_url = os.environ.get("API_URL3", None)
                 elif password == "ACCESS_PASSWORD_4":
                     api_keys = os.environ.get("API_KEYS4", "").split(',')
                     apiKey = random.choice(api_keys)
-                    api_url = os.environ.get("API_URL4", "")
+                    api_url = os.environ.get("API_URL4", None)
                 elif password == "ACCESS_PASSWORD_5":
                     api_keys = os.environ.get("API_KEYS5", "").split(',')
                     apiKey = random.choice(api_keys)
-                    api_url = os.environ.get("API_URL5", "")
+                    api_url = os.environ.get("API_URL5", None)
 
     # 如果模型包含 "xxx"，更换对应的api_url和data
     if model == "dall-e-2":
