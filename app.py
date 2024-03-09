@@ -58,30 +58,30 @@ def chat():
         # 如果模型不包含"gpt-4"和"dall-e-3"，使用默认的API_KEYS
     if apiKey is None:
         if "gpt-4" not in model and "dall-e-3" not in model:
-            api_keys = os.environ.get("API_KEYS", None).split(',')
+            api_keys = os.environ.get("API_KEYS").split(',')
             apiKey = random.choice(api_keys)
             api_url = os.environ.get("API_URL", None)
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
             if password == os.environ.get("ACCESS_PASSWORD_1", None):
-                api_keys = os.environ.get("API_KEYS1",None).split(',')
+                api_keys = os.environ.get("API_KEYS1").split(',')
                 apiKey = random.choice(api_keys)
                 api_url = os.environ.get("API_URL1", None)
             else:
                 if password == os.environ.get("ACCESS_PASSWORD_2", None):
-                    api_keys = os.environ.get("API_KEYS2", None).split(',')
+                    api_keys = os.environ.get("API_KEYS2").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL2", None)
                 elif password == os.environ.get("ACCESS_PASSWORD_3", None):
-                    api_keys = os.environ.get("API_KEYS3", None).split(',')
+                    api_keys = os.environ.get("API_KEYS3").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL3", None)
                 elif password == os.environ.get("ACCESS_PASSWORD_4", None):
-                    api_keys = os.environ.get("API_KEYS4", None).split(',')
+                    api_keys = os.environ.get("API_KEYS4").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL4", None)
                 elif password == os.environ.get("ACCESS_PASSWORD_5", None):
-                    api_keys = os.environ.get("API_KEYS5", None).split(',')
+                    api_keys = os.environ.get("API_KEYS5").split(',')
                     apiKey = random.choice(api_keys)
                     api_url = os.environ.get("API_URL5", None)
 
