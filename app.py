@@ -22,7 +22,7 @@ def index():
 def chat():
     global user_text
     messages = request.form.get("prompts", None)
-    apiKey = request.form.get("apiKey", None)
+    apiKey = request.form.get("apiKey", "")
     model = request.form.get("model", "gpt-3.5-turbo-0125")
     temperature = request.form.get("temperature", 0.5)
     max_tokens = request.form.get("max_tokens", 4000)
