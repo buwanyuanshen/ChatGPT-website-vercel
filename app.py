@@ -63,7 +63,7 @@ def chat():
     
     if apiKey is None:
         if "gpt-4" in model or "dall-e-3" in model:
-            if password == "ACCESS_PASSWORD_1":
+            if password == ACCESS_PASSWORD_1:
                 api_keys = os.environ.get("API_KEYS1", None).split(',')
                 apiKey = random.choice(api_keys)
                 api_url = os.environ.get("API_URL1", None)
