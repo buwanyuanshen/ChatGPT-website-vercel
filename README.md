@@ -21,7 +21,7 @@ API_Keys支持多个填写，以英文逗号分隔即可！
 | ACCESS_PASSWORD_1 | 访问密码1 | xxxxxxx | gpt4等付费模型的访问密码1 |  ✅|
 | API_KEYS2 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码2 |  ✅|
 | API_URL2 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码2 |  ✅|
-| ACCESS_PASSWORD_1 | 访问密码2 | xxxxxxx | gpt4等付费模型的访问密码2 |  ✅|
+| ACCESS_PASSWORD_2 | 访问密码2 | xxxxxxx | gpt4等付费模型的访问密码2 |  ✅|
 | API_KEYS3 | OpenAI API 密钥 |  sk-xxxxx | 用于gpt4等付费模型，对应访问密码3 |  ✅|
 | API_URL3 | OpenAI API 接口地址 | https://api.openai.com | 用于gpt4等付费模型，对应访问密码3 |  ✅|
 | ACCESS_PASSWORD_3 | 访问密码3 | xxxxxxx | gpt4等付费模型的访问密码3 |  ✅|
