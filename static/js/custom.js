@@ -541,6 +541,9 @@ chatBtn.click(function() {
         url: '/chat',
         method: 'POST',
         data: data,
+        body: JSON.stringify({
+        "stream": true
+      }),
         xhrFields: {
             onprogress: function(e) {
                 res = e.target.responseText;
