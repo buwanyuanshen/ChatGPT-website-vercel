@@ -296,6 +296,9 @@ function resendMessage(message) {
     url: '/chat',
     method: 'POST',
     data: data,
+    body: JSON.stringify({
+        "stream": true
+      }),
     xhrFields: {
       onprogress: function(e) {
         // 显示加载状态
