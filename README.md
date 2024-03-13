@@ -76,6 +76,9 @@ dalle3图片：
 
 ![image](https://github.com/buwanyuanshen/chatgpt-website-vercel/assets/144007759/54153a2e-f2aa-4e12-b44d-689269ea7c33)
 
+## 局限性
+vercel只支持静态网页，所以使用一键部署无法实现流式输出，生产使用建议前往原项目手动部署！
+
 ## 手动本地部署
  请前往[ChatGPT-website-plus](https://github.com/buwanyuanshen/ChatGPT-website-plus)查看详细部署和配置方法！！！
 
