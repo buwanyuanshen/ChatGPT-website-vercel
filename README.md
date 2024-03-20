@@ -94,5 +94,7 @@ dalle3图片：
 vercel只支持静态网页，所以使用一键部署无法实现流式输出，生产使用建议前往原项目手动部署！
 
 ## 手动本地部署
- 请前往[ChatGPT-website-plus](https://github.com/buwanyuanshen/ChatGPT-website-plus)查看详细部署和配置方法！！！
+请前往[ChatGPT-website-plus](https://github.com/buwanyuanshen/ChatGPT-website-plus)查看详细部署和配置方法！！！
 
+## 其余项目网址
+[chatgpt-website-forward-vercel(前端)](https://github.com/buwanyuanshen/chatgpt-website-forward-vercel),一键部署有流式。
