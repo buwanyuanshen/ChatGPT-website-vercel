@@ -529,8 +529,7 @@ chatBtn.click(function() {
     addRequestMessage(message);
     // 将用户消息保存到数组
     messages.push({"role": "user", "content": message});
-    // 收到回复前让按钮不可点击
-   chatBtn.attr('disabled', true);
+
 
     if (messages.length > 40) {
         addFailMessage("此次对话长度过长，请点击下方删除按钮清除对话内容！");
