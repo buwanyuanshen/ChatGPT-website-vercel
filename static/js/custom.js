@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    // 读取本地存储中的模型列表，并初始化模型选择下拉框
+    var savedModels = localStorage.getItem('customModels');
+    if (savedModels) {
+        $(".model").html(savedModels);
+    }
+
     // 监听添加自定义模型按钮点击事件
     $(".add-custom-model").on("click", function () {
         // 获取用户输入的自定义模型名称
@@ -10,6 +16,9 @@ $(document).ready(function () {
             if ($(".model option[value='" + customModelName + "']").length === 0) {
                 // 添加自定义模型到模型选择下拉框
                 $(".model").append('<option value="' + customModelName + '">' + customModelName + '</option>');
+
+                // 保存模型列表到本地存储
+                saveModelsToLocalStorage();
 
                 // 清空输入框
                 $(".custom-model").val("");
@@ -34,6 +43,9 @@ $(document).ready(function () {
                 // 删除相同模型
                 optionToRemove.remove();
 
+                // 保存模型列表到本地存储
+                saveModelsToLocalStorage();
+
                 // 清空输入框
                 $(".custom-model").val("");
             } else {
@@ -43,7 +55,14 @@ $(document).ready(function () {
             alert("请输入有效的模型名称！");
         }
     });
+
+    // 将模型列表保存到本地存储
+    function saveModelsToLocalStorage() {
+        var modelsHtml = $(".model").html();
+        localStorage.setItem('customModels', modelsHtml);
+    }
 });
+
 // 获取输入框元素和外部容器
 var chatInput = document.getElementById('chatInput');
 var iptContainer = document.querySelector('.ipt');
