@@ -36,9 +36,7 @@ API_Keys支持多个填写，以英文逗号分隔即可！
 
 ### PC端
 #### 可使用gpt-4,dalle3(可自由选择参数),tts,embedding,moderation,gpt-4-vision-preview等模型！如下使用dalle3画了一张宽图：
-![image](https://github.com/buwanyuanshen/ChatGPT-website-plus/assets/144007759/aaa3e2eb-6322-49c6-868c-3e665fa66d66)
-dalle3图片：
-![image](https://github.com/buwanyuanshen/ChatGPT-website-plus/assets/144007759/92158ecf-cd9f-4f03-8ba2-b93bc700951b)
+![image](https://img.picgo.net/2024/10/10/IMG_20241010_0032501b5464e2bc7ac651.jpg）
 
 ## 图片下载地址：
 [dalle3图片下载](https://pan.baidu.com/share/init?surl=zSxedE6qrlG-MWryMleFqQ&pwd=6666)
@@ -46,7 +44,7 @@ dalle3图片：
 
 
 ### 手机端
-![image](https://github.com/buwanyuanshen/ChatGPT-website-plus/assets/144007759/c78e568b-a188-4524-b82a-3247f95eda92)
+![image](https://img.picgo.net/2024/10/10/IMG_20241010_002718ea818b7b80bc55ce.jpg)
 
 
 
