@@ -36,7 +36,7 @@ API_Keys支持多个填写，以英文逗号分隔即可！
 
 ### PC端
 #### 可使用gpt-4,dalle3(可自由选择参数),tts,embedding,moderation,gpt-4-vision-preview等模型！如下使用dalle3画了一张宽图：
-![image](https://img.picgo.net/2024/10/10/IMG_20241010_0032501b5464e2bc7ac651.jpg）
+![image](https://img.picgo.net/2024/10/10/IMG_20241010_0032501b5464e2bc7ac651.jpg)
 
 ## 图片下载地址：
 [dalle3图片下载](https://pan.baidu.com/share/init?surl=zSxedE6qrlG-MWryMleFqQ&pwd=6666)
