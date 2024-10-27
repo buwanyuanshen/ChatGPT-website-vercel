@@ -21,9 +21,8 @@ def index():
 @app.route("/default_balance", methods=["GET"])
 def get_default_balance():
     # 从配置文件中获取默认的 API_KEY 和 API_URL
-    api_keys = app.config.get("API_KEYS1", None).strip().split(",")
-    apiKey = os.environ.get('OPENAI_API_KEY', random.choice(api_keys))
-    apiUrl = app.config.get("API_URL1", None)
+    apiKey = random.choice(os.environ.get("API_KEYS1",None).strip().split(","))
+    apiUrl = os.environ.get("API_URL1", None)
 
     # 如果默认的 apiKey 或 apiUrl 为空，返回错误信息
     if not apiKey or not apiUrl:
