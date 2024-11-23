@@ -318,7 +318,7 @@ def chat():
             "n": 1,
             "stream": True,
         }
-    elif model == "gpt-4o" or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or model == "gpt-4o-2024-05-13" or model == "gpt-4o-2024-08-06" or model == "chatgpt-4o-latest" or "claude-3" in model or model == "gpt-4o-mini" or model == "gpt-4o-mini-2024-07-18" or "gemini-1.5" in model: 
+    elif model == "gpt-4o" or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or model == "gpt-4o-2024-05-13" or model == "gpt-4o-2024-08-06" or model == "gpt-4o-2024-11-20" or model == "chatgpt-4o-latest" or "claude-3" in model or model == "gpt-4o-mini" or model == "gpt-4o-mini-2024-07-18" or "gemini-1.5" in model or "gemini-exp" in model or "learnlm-1.5-pro-experimental" in model:
         if ',' not in messages and '，' not in messages:
             api_url += "/v1/chat/completions"
             data = {
@@ -398,6 +398,7 @@ def chat():
                     "temperature": 1,
                     "top_p": 1,
                     "n": 1,
+                    "stream": True,
         }
                    
     else:
