@@ -1,4 +1,4 @@
-## 一键部署ChatGPT-website-plus项目！十秒极速部署一个基本支持所有OpenAI模型的对话式网页！
+## 一键部署ChatGPT-website-vercel项目！十秒极速部署一个基本支持所有OpenAI模型的对话式网页！
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/buwanyuanshen/ChatGPT-website-vercel)
 ## 体验网址
 [本人项目体验网址](https://free.ccf666.cn)，输入限时访问密码(freegpt)即可体验所有模型！！！余额有限，用完即止！
