@@ -72,19 +72,20 @@ API_Keys支持多个填写，以英文逗号分隔即可！
 
 ![image](https://github.com/buwanyuanshen/chatgpt-website-vercel/assets/144007759/54153a2e-f2aa-4e12-b44d-689269ea7c33)
 
-# 截止2024.11.28最新ChatGPT免费使用网址，还在更新中！：
+# 截止2024.12.07最新ChatGPT免费使用网址，还在更新中！：
 1. Free Chat（后端）:[Free Chat（后端）](https://gpt5.sbs)
 2. Free Chat（前端）:[Free Chat（前端）](https://f1.gpt5.sbs) 
 3. Paint-Web:[Paint-Web](https://paint.gpt5.sbs) 
-4. ChatGPT-NextWeb:[ChatGPT-NextWeb](https://chatpro.icu)
-5. ChatGPT-Lobe:[ChatGPT-Lobe](https://lobe.chatpro.icu)
-6. Chat-MJ:[Chat-MJ](https://mj.chatpro.icu)
-7. Chat-OpenWebUI:[Chat-OpenWebUI](https://open.chatpro.icu) 
+4. ChatGPT-NextWeb:[ChatGPT-NextWeb](https://next.gpt5.sbs)
+5. ChatGPT-Lobe:[ChatGPT-Lobe](https://lobe.gpt5.sbs)
+6. Chat-MJ:[Chat-MJ](https://mj.gpt5.sbs)
+7. Chat-OpenWebUI:[Chat-OpenWebUI](https://open.gpt5.sbs) 
 8. CF API:[CF API](https://api.gpt5.sbs)
-9. CF SHOP:[CF SHOP](https://shop.chatpro.icu)
+9. CF SHOP:[CF SHOP](https://shop.gpt5.sbs)
 10. CF 机场:[CF 机场](https://v2.gpt5.sbs)
-11. CF 支付:[CF 支付](https://pay.chatpro.icu)
+11. CF 支付:[CF 支付](https://pay.gpt5.sbs)
 12. 可以加入[q群226848325](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=1OOigjF5hxHUSQ5GE5U2UOIwswuckYOe&authKey=2pdTkM0NqehD2OuMojvBMnsmCAUcD6oO3ttDzS5CNle8tnre1a9Jp30aJZVUnC2c&noverify=0&group_code=226848325)学习交流！
+13. TG群聊:[TG群聊](https://t.me/fggpt)
 
 ## 局限性
 vercel只支持静态网页，所以使用一键部署无法实现流式输出，生产使用建议前往原项目手动部署！
