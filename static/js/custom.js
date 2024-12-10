@@ -1,4 +1,3 @@
-// Helper functions to set and get cookies
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
@@ -8,7 +7,6 @@ function setCookie(name, value, days) {
     }
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
-
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -19,12 +17,10 @@ function getCookie(name) {
     }
     return null;
 }
-
 document.addEventListener('DOMContentLoaded', function() {
     // 余额显示/隐藏功能
     var toggleBalance = document.getElementById('toggleBalance');
     var balanceInfo = document.getElementById('balanceInfo');
-
     // 读取Cookie并设置初始状态
     var balanceVisibility = getCookie('balanceVisibility');
     if (balanceVisibility === 'hidden') {
@@ -34,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBalance.checked = true;
         balanceInfo.style.display = 'block';
     }
-
     // 监听开关变化
     toggleBalance.addEventListener('change', function() {
         if (this.checked) {
