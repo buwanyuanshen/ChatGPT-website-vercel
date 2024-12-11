@@ -17,7 +17,22 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def index():
     return render_template("chat.html")
+    
+@app.route("/upload_image", methods=["POST"])
+def upload_image():
+    """Handle image upload and return Base64-encoded string."""
+    image = request.files.get("image")
+    if not image:
+        return jsonify({"error": "No image uploaded."})
 
+    try:
+        # Encode the image to Base64
+        image_data = image.read()
+        base64_image = base64.b64encode(image_data).decode('utf-8')
+        return jsonify({"base64_image": base64_image})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+        
 @app.route("/default_balance", methods=["GET"])
 def get_default_balance():
     # 从配置文件中获取默认的 API_KEY 和 API_URL
@@ -71,6 +86,7 @@ def chat():
     max_tokens = request.form.get("max_tokens", 4000)
     password = request.form.get("password", None)
     api_url = request.form.get("api_url", None)
+    image_base64 = request.form.get("image_base64", None)
 
     if api_url is None:
         api_url = os.environ.get("API_URL", None)
@@ -318,8 +334,29 @@ def chat():
             "n": 1,
             "stream": True,
         }
-    elif model == "gpt-4o" or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or model == "gpt-4o-2024-05-13" or model == "gpt-4o-2024-08-06" or model == "gpt-4o-2024-11-20" or model == "chatgpt-4o-latest" or "claude-3" in model or model == "gpt-4o-mini" or model == "gpt-4o-mini-2024-07-18" or "gemini-1.5" in model or "gemini-exp" in model or "learnlm-1.5-pro-experimental" in model:
-        if ',' not in messages and '，' not in messages:
+     elif  "gpt-4" in model or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or "claude-3" in model or "gemini-1.5" in model or "gemini-exp" in model or "learnlm-1.5-pro-experimental" in model or "o1" in model:
+        if image_base64:
+                api_url += "/v1/chat/completions"
+                data = {
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": messages},
+                                {
+                                    "type": "image_url",
+                                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"},
+                                },
+                            ],
+                        }
+                    ],
+                    "model": model,
+                    "max_tokens": int(max_tokens),
+                    "stream": True,
+                }
+
+        else:
+            # 对于其他模型，使用原有 api_url
             api_url += "/v1/chat/completions"
             data = {
                 "messages": json.loads(messages),
@@ -330,65 +367,6 @@ def chat():
                 "n": 1,
                 "stream": True,
             }
-        else:
-            # 尝试从消息中提取链接和用户文本
-            image_url_match = re.search(r'https://\S+[,，]', messages)
-            image_url = image_url_match.group().strip(",，") if image_url_match else None
-            
-            try:
-                messages_list = json.loads(messages)
-            except json.JSONDecodeError as e:
-                print(f"Error decoding JSON: {e}")
-                messages_list = []
-    
-            user_text = ""
-            for message in messages_list:
-                content = message.get("content", "") if isinstance(message, dict) else ""
-                if not content and isinstance(message, str):
-                    try:
-                        message_dict = json.loads(message)
-                        content = message_dict.get("content", "")
-                    except json.JSONDecodeError as e:
-                        print(f"Error decoding JSON in message: {e}")
-                
-                # 提取用户文本，忽略链接前是否有逗号
-                if content:
-                    match = re.search(r"(https://\S+)?[,，](.+)", content)
-                    if match:
-                        user_text = match.group(2)
-                    else:
-                        user_text = content
-    
-            if image_url:
-                api_url += "/v1/chat/completions"
-                data = {
-                    "messages": [
-                        {
-                            "role": "user",
-                            "content": [
-                                {"type": "text", "text": user_text},
-                                {
-                                    "type": "image_url",
-                                    "image_url": {"url": image_url},
-                                },
-                            ],
-                        }
-                    ],
-                    "model": model,
-                    "max_tokens": int(max_tokens),
-                    "stream": True,
-                }
-            else:
-                api_url += "/v1/chat/completions"
-                data = {
-                    "messages": json.loads(messages),
-                    "model": model,
-                    "max_tokens": int(max_tokens),
-                    "temperature": float(temperature),
-                    "top_p": 1,
-                    "n": 1,
-                    "stream": True,
-                }
     elif "o1" in model and "all" not in model:
         api_url += "/v1/chat/completions"
         data = {
