@@ -19,23 +19,6 @@ app = Flask(__name__)
 def index():
     return render_template("chat.html")
 
-
-@app.route("/upload_image", methods=["POST"])
-def upload_image():
-    """Handle image upload and return Base64-encoded string."""
-    image = request.files.get("image")
-    if not image:
-        return jsonify({"error": "No image uploaded."})
-
-    try:
-        # Encode the image to Base64
-        image_data = image.read()
-        base64_image = base64.b64encode(image_data).decode('utf-8')
-        return jsonify({"base64_image": base64_image})
-    except Exception as e:
-        return jsonify({"error": str(e)})
-
-
 @app.route("/default_balance", methods=["GET"])
 def get_default_balance():
     # 从配置文件中获取默认的 API_KEY 和 API_URL
