@@ -74,28 +74,6 @@ def chat():
     password = request.form.get("password", None)
     api_url = request.form.get("api_url", None)
     image_base64 = request.form.get("image_base64", None)
-    # 获取当前日期和时间
-    current_time = datetime.now().strftime("%Y年%m月%d日%H:%M:%S")
-
-    # 获取当前日期
-    current_date = datetime.now().strftime("%Y.%m.%d")
-
-    # 获取当前脚本所在目录
-    current_directory = os.path.dirname(os.path.realpath(__file__))
-    # 构建文件夹路径
-    folder_path = os.path.join(current_directory, "对话记录")
-
-    # 如果对话记录文件夹不存在，则创建它
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-
-    # 构建文件保存路径
-    file_name = f"{current_date}.txt"
-    file_path = os.path.join(folder_path, file_name)
-
-    # 将用户输入的message和model以及时间保存到一个文件
-    with open(file_path, "a", encoding="utf-8") as all_info_file:
-        all_info_file.write(f"Time: {current_time}\nModel: {model}\nApiKey: {apiKey}\nApi_url: {api_url}\nMessage: {messages}\n\n")
 
     if api_url is None:
         api_url = os.environ.get("API_URL", None)
