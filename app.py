@@ -534,7 +534,6 @@ def chat():
                 if "choices" in streamDict:
                     if streamDict["choices"]:
                         delData = streamDict["choices"][0]
-                        print(delData)
                         if streamDict.get("model") is None:
                             break
                         else:
@@ -545,13 +544,13 @@ def chat():
                                 respStr = delData["delta"]["content"]
                                 yield respStr
                             elif "delta" in delData and "content" in delData["delta"] and "reasoning_content" in delData["delta"]:
-                                respStr = delData["delta"]["reasoning_content"] + delData["delta"]["content"]
+                                respStr = "思考过程："+ delData["delta"]["reasoning_content"] +"\n" +"最终回答：" + delData["delta"]["content"]
                                 yield respStr
                             elif "message" in delData and "content" in delData["message"] and "reasoning_content" not in delData["message"]:
                                 respStr = delData["message"]["content"]
                                 yield respStr
                             elif "message" in delData and "content" in delData["message"] and "reasoning_content" in delData["message"]:
-                                respStr = delData["message"]["reasoning_content"] + delData["message"]["content"]
+                                respStr = "思考过程："+ delData["message"]["reasoning_content"] +"\n" +"最终回答：" + delData["message"]["content"]
                                 yield respStr
                     else:
                         errorStr += f"Empty choices in data: {streamDict}\n"
