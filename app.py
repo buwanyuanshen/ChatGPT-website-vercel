@@ -321,27 +321,46 @@ def chat():
             "n": 1,
             "stream": True,
         }
-    elif "gpt-4" in model or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or "claude-3" in model or "gemini-1.5" in model or "gemini-2.0" in model or "gemini-exp" in model or "learnlm-1.5-pro-experimental" in model or "o1" in model:
+    elif  "gpt-4" in model or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or "claude-3" in model or "gemini-1.5" in model or "gemini-exp" in model or "learnlm-1.5-pro-experimental" in model or "o1" in model or "gemini-2.0" in model:
         if image_base64:
+                api_url += "/v1/chat/completions"
+                data = {
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": messages},
+                                {
+                                    "type": "image_url",
+                                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"},
+                                },
+                            ],
+                        }
+                    ],
+                    "model": model,
+                    "max_tokens": int(max_tokens),
+                    "stream": True,
+                }
+        elif "claude-3-7-sonnet-20250219-thinking" in model:
             api_url += "/v1/chat/completions"
             data = {
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": messages},
-                            {
-                                "type": "image_url",
-                                "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"},
-                            },
-                        ],
-                    }
-                ],
-                "model": model,
-                "max_tokens": int(max_tokens),
-                "stream": True,
+                    "messages": json.loads(messages),
+                    "model": model,
+                    "max_tokens": int(max_tokens),
+                    "n": 1,
+                    "stream": False,
             }
-
+        elif "o1" in model and "all" not in model:
+        api_url += "/v1/chat/completions"
+        data = {
+            "messages": json.loads(messages),
+            "model": model,
+            "max_tokens": int(max_tokens),
+            "temperature": 1,
+            "top_p": 1,
+            "n": 1,
+            "stream": True,
+        }
         else:
             # 对于其他模型，使用原有 api_url
             api_url += "/v1/chat/completions"
@@ -354,17 +373,6 @@ def chat():
                 "n": 1,
                 "stream": True,
             }
-    elif "o1" in model and "all" not in model:
-        api_url += "/v1/chat/completions"
-        data = {
-            "messages": json.loads(messages),
-            "model": model,
-            "max_tokens": int(max_tokens),
-            "temperature": 1,
-            "top_p": 1,
-            "n": 1,
-            "stream": True,
-        }
     elif "deepseek-r" in model:
         api_url += "/v1/chat/completions"
         data = {
