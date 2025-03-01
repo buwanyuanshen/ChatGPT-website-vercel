@@ -54,6 +54,7 @@ function checkModelAndShowUpload() {
         selectedModel.includes("learnlm-1.5-pro-experimental") ||
         selectedModel.includes("vision") ||
         selectedModel.includes("o1")
+        selectedModel.includes("o3")
 
     ) {
         uploadArea.style.display = 'block';
