@@ -908,9 +908,9 @@ let imageSrc = document.getElementById('imagePreview').src;
     // 判读是否已开启连续对话
     data.prompts = messages.slice();  // 拷贝一份全局 messages 赋值给 data.prompts,然后对 data.prompts 处理
     if (localStorage.getItem('continuousDialogue') == 'true') {
-        // 控制上下文，对话长度超过4轮，取最新的3轮,即数组最后7条数据
-        if (data.prompts.length > 8) {
-            data.prompts.splice(0, data.prompts.length - 7);
+        // 控制上下文，对话长度超过100轮，取最新的99轮,即数组最后199条数据
+        if (data.prompts.length > 200) {
+            data.prompts.splice(0, data.prompts.length - 199);
         }
     } else {
         data.prompts.splice(0, data.prompts.length - 1); // 未开启连续对话，取最后一条
