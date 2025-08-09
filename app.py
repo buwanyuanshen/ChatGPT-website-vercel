@@ -302,7 +302,7 @@ def chat():
             "input": messages,
             "model": model,
         }
-    elif "tts" in model:
+    elif "tts" in model or "transcribe" in model:
         api_url += "/v1/audio/speech"
         data = {
             "input": messages.replace("user", "").replace("content", "").replace("role", "").replace("assistant", ""),
@@ -321,7 +321,7 @@ def chat():
             "n": 1,
             "stream": True,
         }
-    elif  "gpt-4" in model or "gpt-5" in model or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or "claude-3" in model or "claude-4" in model or "gemini-1.5" in model or "gemini-exp" in model or "learnlm" in model or "o1" in model or "o3" in model  or "o4" in model or "gemini-2.0" in model or "gemini-2.5" in model:
+    elif  "gpt-4" in model or "gpt-5" in model or "vision" in model or "glm-4v" in model or "glm-4v-plus" in model or "claude-sonnet" in model or "claude-opus" in model or "claude-3" in model or "claude-4" in model or "gemini-1.5" in model or "gemini-exp" in model or "learnlm" in model or "o1" in model or "o3" in model  or "o4" in model or "gemini-2.0" in model or "gemini-2.5" in model:
         if image_base64:
                 api_url += "/v1/chat/completions"
                 data = {
@@ -341,17 +341,7 @@ def chat():
                     "max_tokens": int(max_tokens),
                     "stream": True,
                 }
-        elif "claude-3" in model:
-            api_url += "/v1/chat/completions"
-            data = {
-                    "messages": json.loads(messages),
-                    "model": model,
-                    "max_tokens": int(max_tokens),
-                    "n": 1,
-                    "stream": True,
-
-            }
-                elif "claude-4" in model:
+        elif "claude-3" in model or "claude-4" in model or "claude-sonnet" in model or "claude-opus" in model:
             api_url += "/v1/chat/completions"
             data = {
                     "messages": json.loads(messages),
