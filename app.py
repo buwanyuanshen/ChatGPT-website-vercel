@@ -31,9 +31,10 @@ def get_models():
 
     # If the frontend did not provide an apiKey, use one from the server's default pool
     if not apiKey:
-        api_keys = os.environ.get("API_KEYS1", None).strip().split(",")
-        if not api_keys:
+        api_keys_str = os.environ.get("API_KEYS1", None)
+        if not api_keys_str:
              return jsonify({"error": {"message": "Server has no default API key configured.", "type": "config_error"}}), 500
+        api_keys = api_keys_str.strip().split(",")
         apiKey = random.choice(api_keys)
 
     # Ensure we have the necessary components to make the request
@@ -63,6 +64,7 @@ def get_models():
         return jsonify({"error": {"message": f"Failed to fetch models from API: {str(e)}", "type": "api_error"}}), 500
     except Exception as e:
         return jsonify({"error": {"message": f"An unexpected error occurred: {str(e)}", "type": "internal_error"}}), 500
+
 @app.route("/default_balance", methods=["GET"])
 def get_balance():
     # Get parameters from the frontend request, if they exist
@@ -74,9 +76,10 @@ def get_balance():
     if user_api_key:
         final_api_key = user_api_key
     else:
-        api_keys = os.environ.get("API_KEYS1", None).strip().split(",")
-        if not api_keys:
+        api_keys_str = os.environ.get("API_KEYS1", None)
+        if not api_keys_str:
              return jsonify({"error": {"message": "未设置默认的 API 密钥", "type": "config_error"}}), 500
+        api_keys = api_keys_str.strip().split(",")
         final_api_key = random.choice(api_keys)
 
     # Use user-provided API URL, or fall back to the server's default if not provided
@@ -449,7 +452,9 @@ def chat():
                                     "stream": True,
 
             }
-            elif "gpt-5" in model and "all" not in model:
+        # --- FIX START ---
+        # The following block was incorrectly indented. It has been moved to the correct level.
+        elif "gpt-5" in model and "all" not in model:
             api_url += "/v1/chat/completions"
             data = {
                     "messages": json.loads(messages),
@@ -459,8 +464,8 @@ def chat():
                     "top_p": 1,
                     "n": 1,
                                     "stream": True,
-
             }
+        # --- FIX END ---
         else:
             # 对于其他模型，使用原有 api_url
             api_url += "/v1/chat/completions"
@@ -652,10 +657,11 @@ def chat():
             if chunk:
                 streamStr = chunk.decode("utf-8").replace("data: ", "")
                 try:
-                    streamStr = streamStr.strip("[DONE]")
-                    print(streamStr)
-                    streamDict = json.loads(streamStr)
-                    print(streamDict)
+                    # Guard against empty strings which can happen with "[DONE]"
+                    if streamStr.strip() and streamStr.strip() != "[DONE]":
+                        streamDict = json.loads(streamStr)
+                    else:
+                        continue
                 except json.JSONDecodeError:
                     errorStr += streamStr.strip()
                     continue
@@ -663,28 +669,29 @@ def chat():
                 if "choices" in streamDict:
                     if streamDict["choices"]:
                         delData = streamDict["choices"][0]
-                        if streamDict.get("model") is None:
-                            break
-                        else:
-                            if "text" in delData:
-                                respStr = delData["text"]
-                                yield respStr
-                            elif "delta" in delData and "content" in delData["delta"] and "reasoning_content" not in delData["delta"]:
+                        if "text" in delData:
+                            respStr = delData["text"]
+                            yield respStr
+                        elif "delta" in delData and "content" in delData["delta"] and "reasoning_content" not in delData["delta"]:
+                            if delData["delta"]["content"]:
                                 respStr = delData["delta"]["content"]
                                 yield respStr
-                            elif "delta" in delData and "content" in delData["delta"] and "reasoning_content" in delData["delta"]:
-                                respStr = "思考过程：" + "\n" + delData["delta"]["reasoning_content"] + "\n" +"最终回答：" + "\n"  + delData["delta"]["content"]
-                                yield respStr
-                            elif "message" in delData and "content" in delData["message"] and "reasoning_content" not in delData["message"]:
-                                respStr = delData["message"]["content"]
-                                yield respStr
-                            elif "message" in delData and "content" in delData["message"] and "reasoning_content" in delData["message"]:
-                                respStr = "思考过程：" + "\n"  + delData["message"]["reasoning_content"] + "\n" +"最终回答：" + "\n" + delData["message"]["content"]
-                                yield respStr
+                        elif "delta" in delData and "content" in delData["delta"] and "reasoning_content" in delData["delta"]:
+                            respStr = "思考过程：" + "\n" + delData["delta"]["reasoning_content"] + "\n" +"最终回答：" + "\n"  + delData["delta"]["content"]
+                            yield respStr
+                        elif "message" in delData and "content" in delData["message"] and "reasoning_content" not in delData["message"]:
+                            respStr = delData["message"]["content"]
+                            yield respStr
+                        elif "message" in delData and "content" in delData["message"] and "reasoning_content" in delData["message"]:
+                            respStr = "思考过程：" + "\n"  + delData["message"]["reasoning_content"] + "\n" +"最终回答：" + "\n" + delData["message"]["content"]
+                            yield respStr
                     else:
-                        errorStr += f"Empty choices in data: {streamDict}\n"
+                        # This can happen in some streams, not necessarily an error
+                        pass
+                elif "error" in streamDict:
+                    errorStr += f"API Error: {streamDict['error'].get('message', 'Unknown Error')}\n"
                 else:
-                    errorStr += f"Unexpected data format: {streamDict}\n"
+                    errorStr += f"Unexpected data format: {json.dumps(streamDict)}\n"
 
         if not respStr and errorStr:
             with app.app_context():
