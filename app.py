@@ -18,6 +18,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def index():
     return render_template("chat.html")
+    
 @app.route("/models", methods=["GET"])
 def get_models():
     # Get apiKey and apiUrl from query parameters sent by the frontend
@@ -26,11 +27,11 @@ def get_models():
 
     # If the frontend did not provide an api_url, use the server's default
     if not api_url:
-        api_url = app.config.get("API_URL1", None)
+        api_url = os.environ.get("API_URL1", None)
 
     # If the frontend did not provide an apiKey, use one from the server's default pool
     if not apiKey:
-        api_keys = app.config.get("API_KEYS1", [])
+        api_keys = os.environ.get("API_KEYS1", None).strip().split(",")
         if not api_keys:
              return jsonify({"error": {"message": "Server has no default API key configured.", "type": "config_error"}}), 500
         apiKey = random.choice(api_keys)
@@ -73,7 +74,7 @@ def get_balance():
     if user_api_key:
         final_api_key = user_api_key
     else:
-        api_keys = app.config.get("API_KEYS1", [])
+        api_keys = os.environ.get("API_KEYS1", None).strip().split(",")
         if not api_keys:
              return jsonify({"error": {"message": "未设置默认的 API 密钥", "type": "config_error"}}), 500
         final_api_key = random.choice(api_keys)
@@ -82,7 +83,7 @@ def get_balance():
     if user_api_url:
         final_api_url = user_api_url
     else:
-        final_api_url = app.config.get("API_URL1", None)
+        final_api_url = os.environ.get("API_URL1", None)
     # --- End: Intelligent Fallback Logic ---
 
     # If the final apiKey or apiUrl is missing, return an error
