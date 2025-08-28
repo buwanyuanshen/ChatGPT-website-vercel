@@ -76,7 +76,7 @@ API_Keys支持多个填写，以英文逗号分隔即可！
 
 ![image](https://github.com/user-attachments/assets/347466a0-3b83-484b-b17d-2feb0de1d29e)
 # 截止2025.03.18最新ChatGPT免费使用网址，还在更新中！：
-1. Free Chat（后端）:[Free Chat（后端）](https://gpt7.icu)
+1. Free Chat（后端）:[Free Chat（后端）](https://f2.gpt7.icu)
 2. Free Chat（前端）:[Free Chat（前端）](https://f1.gpt7.icu) 
 3. Paint-Web:[Paint-Web](https://paint.gpt7.icu) 
 4. ChatGPT-NextWeb:[ChatGPT-NextWeb](https://next.gpt7.icu)
